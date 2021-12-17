@@ -7,6 +7,7 @@ S3    M3      M6
 S3    M4      M7
 S3    M2      M8
 S3    M2      M9
+S3    M5      M10
 `
 
 function modify(from, to, tree){
@@ -20,7 +21,9 @@ function modify(from, to, tree){
 	    delete tree[n];
 	    return true;
 	}
-	modify(from, to, tree[n]);
+	if(modify(from, to, tree[n])){
+	    return true;
+	}
     }
     return false;
 }
@@ -63,4 +66,4 @@ function go(){
 }
 
 
-//transform(sample);
+transform(sample);
